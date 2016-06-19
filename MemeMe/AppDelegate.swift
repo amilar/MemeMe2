@@ -14,9 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var memes = [Meme]()
 
+    func addTestMeme(name: String) {
+        let meme = Meme( topText: name, bottomText: name, origImage:UIImage(named: name)!, memedImage: UIImage(named: name)!)
+        
+        (UIApplication.sharedApplication().delegate as!
+            AppDelegate).memes.append(meme)
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        addTestMeme("1")
+        addTestMeme("2")
+        addTestMeme("3")
+        addTestMeme("4")
+        addTestMeme("5")
+       return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
