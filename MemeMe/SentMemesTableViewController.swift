@@ -15,7 +15,9 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource {
     var allMemes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
-    
+
+    // ===== Overridden functions =====
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -28,17 +30,11 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
     }
     
-    func addMeme() {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        presentViewController(vc, animated: true, completion: nil)
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.allMemes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")! as! MemeTableViewCell
         let meme = self.allMemes[indexPath.row]
         
@@ -50,10 +46,16 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.allMemes[indexPath.row]
         self.navigationController!.pushViewController(detailController, animated: true)
+    }
+    
+    // ===== Add Meme function =====
+
+    func addMeme() {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        presentViewController(vc, animated: true, completion: nil)
     }
     
 }

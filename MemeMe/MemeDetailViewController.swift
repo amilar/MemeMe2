@@ -6,8 +6,6 @@
 //  Copyright © 2016 Amilar sprl. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
 class MemeDetailViewController : UIViewController {
@@ -16,6 +14,8 @@ class MemeDetailViewController : UIViewController {
     
     var meme: Meme!
     
+    // ===== Overridden functions =====
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

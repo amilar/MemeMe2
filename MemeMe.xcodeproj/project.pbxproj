@@ -114,11 +114,11 @@
 				524315991CDCD0C3008DECEF /* Main.storyboard */,
 				5243159C1CDCD0C3008DECEF /* Assets.xcassets */,
 				5243159E1CDCD0C3008DECEF /* LaunchScreen.storyboard */,
-				528636381D15836A00C44255 /* MemeDetailViewController.swift */,
 				528636601D16ECAA00C44255 /* SentMemesTableViewController.swift */,
 				528636621D170A3900C44255 /* MemeTableViewCell.swift */,
 				521D0F6F1D0F183400980A6E /* SentMemesCollectionViewController.swift */,
 				521D0F711D0F192000980A6E /* MemeCollectionViewCell.swift */,
+				528636381D15836A00C44255 /* MemeDetailViewController.swift */,
 				524315971CDCD0C3008DECEF /* MemeEditorViewController.swift */,
 				524315A11CDCD0C3008DECEF /* Info.plist */,
 			);

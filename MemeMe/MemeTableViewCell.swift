@@ -6,7 +6,6 @@
 //  Copyright © 2016 Amilar sprl. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MemeTableViewCell: UITableViewCell {
