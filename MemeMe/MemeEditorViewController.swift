@@ -205,6 +205,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imagePickerView.image = nil
         initializeTextFields()
         enableDisableShareButton()
+        
+        // Meme Me v2.0: dismiss the view controller
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

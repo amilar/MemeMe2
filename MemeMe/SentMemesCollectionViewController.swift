@@ -11,39 +11,35 @@ import UIKit
 
 class SentMemesCollectionViewController: UICollectionViewController {
     // Get a list of all MeMes
-    var allMemes = (UIApplication.sharedApplication().delegate as!
-        AppDelegate).memes
-   
-    //TODO: Add outlet to flowLayout here.
+    var allMemes: [Meme] {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var collView: UICollectionView!
  
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        loadMemes()
+        collView.reloadData()
+        
        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(addMeme))
         self.tabBarController?.tabBar.hidden = false
     }
     
     func addMeme() {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        presentViewController(vc, animated: true, completion: loadMemes)
-    }
-    
-    func loadMemes() {
-        allMemes = (UIApplication.sharedApplication().delegate as!
-            AppDelegate).memes
+        presentViewController(vc, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: Implement flowLayout here.
-        let space: CGFloat = 3.0
-        let width = (view.frame.size.width - (2 * space)) / 3.0
-        let height = (view.frame.size.height - (5 * space)) / 6.0
-        
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.itemSize = CGSizeMake(width, height)
+//        let space: CGFloat = 3.0
+//        let width = (view.frame.size.width - (2 * space)) / 3.0
+//        let height = (view.frame.size.height - (4 * space)) / 5.0
+//        
+//        flowLayout.minimumInteritemSpacing = space
+//        flowLayout.itemSize = CGSizeMake(width, height)
     }
     
     // MARK: Collection View Data Source
@@ -55,10 +51,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = allMemes[indexPath.item]
-        cell.setText(meme.topText, bottomString: meme.bottomText)
         // Set the image
-        let imageView = UIImageView(image: meme.origImage)
-        cell.backgroundView = imageView
+//        let imageView = UIImageView(image: meme.memedImage)
+//        cell.backgroundView = imageView
+        cell.memeImageView.image = meme.memedImage
         
         return cell
     }
